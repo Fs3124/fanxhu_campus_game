@@ -1,0 +1,4 @@
+Unity-Technologies/ROS-TCP-Endpoint main-ros2
+54c1a64b6d5ef6ffa0a0431570bb74329b79b15b
+Local packaging: remove development/launch files; initialize executor before
+accepting TCP registrations and handle Ctrl+C shutdown in the default entry.

@@ -1,0 +1,185 @@
+aim_node:
+  ros__parameters:
+    player_id: 1
+    target_color: "red"
+    enable_fire: true
+    show_image: false
+    print_details: false
+    fire_alignment_deg: 1.2
+
+    #strategy_order: [opening_turn, opening_raise, big_rune1,opening_turn1,big_rune2,big_rune3]
+    #策略名字不能有重复！！！！！！！
+    strategy_order: [opening_raise,opening_turn,small_rune1,to_3_turn,wait_3,armor_3,to_2_turn,wait_2,armor_2,to_6_turn,armor_6_1,from_6_to_small_turn,small_rune2,big_rune1,from_rune_to_5_turn,armor_5,from_5_to_4_turn,armor_4,from_4_to_base_turn,armor_base,from_base_to_rune_turn,big_rune2,from_rune_to_base_turn,armor_forever]
+
+    small_rune_model: ""  
+    small_rune_shot_cooldown_s: 0.5  #small 冷却
+    big_rune_shot_cooldown_s: 0.5
+    strategy:
+      opening_turn:
+        action: turn
+        yaw_right_deg: 135.0
+        pitch_up_deg: 0.0
+        duration_s: 1.0
+      opening_turn1:
+        action: turn
+        yaw_right_deg: 135.0
+        pitch_up_deg: 0.0
+        duration_s: 1.0
+      opening_raise:
+        action: turn
+        yaw_right_deg: 0.0
+        pitch_up_deg: 25.0  
+        duration_s: 0.6
+      ditou_turn:
+        action: turn
+        yaw_right_deg: 0.0
+        pitch_up_deg: -25.0
+        duration_s: 2.0
+
+
+      armor_base:
+        action: armor
+        duration_s: 8.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 0
+      armor_3:
+        action: armor
+        duration_s: 0.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 3
+      armor_2:
+        action: armor
+        duration_s: 0.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 2
+      armor_6_1:
+        action: armor
+        duration_s: 0.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 6
+      armor_6_2:
+        action: armor
+        duration_s: 0.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 6
+      armor_5:
+        action: armor
+        duration_s: 0.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 5
+      armor_4:
+        action: armor
+        duration_s: 0.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 4
+      armor_forever:
+        action: armor
+        duration_s: 0.0 
+        end_when:
+          mode: any     #any / all
+          enemy_dead: 0
+
+      rune_turn:
+        action: turn
+        yaw_right_deg: 135.0  
+        pitch_up_deg: 25.0  
+        duration_s: 2.0
+
+      small_rune1:
+        action: small_rune
+        duration_s: 0.0 
+        end_when:
+          rune_activated: true
+      small_rune2:
+        action: small_rune
+        duration_s: 0.0 
+        end_when:
+          rune_activated: true
+
+      big_rune1:
+        action: big_rune
+        duration_s: 67.0
+        end_when:
+          rune_activated: true
+      big_rune2:
+        action: big_rune
+        duration_s: 72.0
+        end_when:
+          rune_activated: true
+      big_rune3:
+        action: big_rune
+        duration_s: 21.0
+        end_when:
+          rune_activated: true
+
+      wait_4:
+        action: wait
+        duration_s: 4.0
+      wait_3:
+        action: wait
+        duration_s: 3.0
+      wait_2:
+        action: wait
+        duration_s: 2.0
+
+      to_3_turn:
+        action: turn
+        yaw_right_deg: -45.0  
+        pitch_up_deg: -25.0  
+        duration_s: 0.5
+      to_2_turn:
+        action: turn
+        yaw_right_deg: 90.0  
+        pitch_up_deg: 0.0  
+        duration_s: 0.5
+      to_5_turn:
+        action: turn
+        yaw_right_deg: -45.0  
+        pitch_up_deg: -25.0  
+        duration_s: 0.5
+      to_6_turn:
+        action: turn
+        yaw_right_deg: -90.0  
+        pitch_up_deg: 25.0  
+        duration_s: 0.5
+
+      from_6_to_small_turn:
+        action: turn
+        yaw_right_deg: 45.0  
+        pitch_up_deg: 0.0  
+        duration_s: 0.5
+      from_rune_to_5_turn:
+        action: turn
+        yaw_right_deg: -45.0  
+        pitch_up_deg: -25.0  
+        duration_s: 0.5
+      from_5_to_4_turn:
+        action: turn
+        yaw_right_deg: -80.0  
+        pitch_up_deg: 0.0  
+        duration_s: 0.5
+      from_rune_to_base_turn:
+        action: turn
+        yaw_right_deg: -45.0  
+        pitch_up_deg: -25.0  
+        duration_s: 0.5
+      from_4_to_base_turn:
+        action: turn
+        yaw_right_deg: 90.0  
+        pitch_up_deg: 0.0  
+        duration_s: 0.5
+      from_base_to_rune_turn:
+        action: turn
+        yaw_right_deg: 45.0  
+        pitch_up_deg: 25.0  
+        duration_s: 0.5
+
+
+

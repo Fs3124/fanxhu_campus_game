@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>aim_node</name>
+  <version>0.1.0</version>
+  <description>One ROS entry for readable armor aiming.</description>
+  <maintainer email="student@example.com">Student</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>ament_index_cpp</depend>
+  <depend>tdt_interface</depend>
+  <depend>aim_tools</depend>
+  <depend>libopencv-dev</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
